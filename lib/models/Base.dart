@@ -2,8 +2,8 @@ class Base {
   int id;
   String name;
 
-  Base(var game) {
-    this.id = 1010;
-    this.name = game['name'];
+  Base(var data) {
+    this.id = data['id'];
+    this.name = data['name'];
   }
 }
