@@ -7,7 +7,7 @@ class Game extends PoorGame {
   double rating;
 
   Game(var game) : super(game) {
-    this.url = game['url'];
+    this.url = game['website'];
     this.rating = game['rating'];
   }
 }
