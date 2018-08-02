@@ -9,8 +9,11 @@ class GameResource {
   DataFetcher fetcher = new DataFetcher(); 
   
   @ApiMethod(path: 'search/{term}')
-  Future<List<PoorGame>> searchGames(String term) async {
-    String path = 'games/?search=${term}&limit=10&fields=*';
+  Future<List<PoorGame>> searchGamesLimited(String term, {int limit = 10}) async {
+    if (limit < 1 || limit > 10) {
+      limit = 10;
+    }
+    String path = 'games/?search=${term}&limit=${limit}&fields=*';
     var games = await fetcher.fetch(path);
     List result = new List();
     for (var game in games) {
